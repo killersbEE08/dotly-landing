@@ -1,7 +1,7 @@
 export const site = {
   name: "Dotly",
   parent: "Prince Labs",
-  developer: "One Eleven Dev",
+  developer: "one1 Eleven dev",
   attribution: "A Prince Labs product",
   tagline: "See your life, one dot at a time",
   description:
