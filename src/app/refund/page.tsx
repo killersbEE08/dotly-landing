@@ -87,9 +87,9 @@ export default function RefundPage() {
           <h2 className="mb-2 text-lg font-semibold text-chalk">Still stuck?</h2>
           <p>
             If Google can&apos;t resolve it or something went wrong on our end,
-            email {site.parent} and we&apos;ll make it right:{" "}
-            <a href={site.parentUrl} className="text-amber hover:underline">
-              {site.parentUrl.replace("https://", "")}
+            email {site.developer} and we&apos;ll make it right:{" "}
+            <a href={`mailto:${site.email}`} className="text-amber hover:underline">
+              {site.email}
             </a>
             .
           </p>

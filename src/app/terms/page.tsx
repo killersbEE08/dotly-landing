@@ -62,7 +62,11 @@ export default function TermsPage() {
         <div>
           <h2 className="mb-2 text-lg font-semibold text-chalk">Contact</h2>
           <p>
-            {site.parent} ·{" "}
+            {site.developer} ·{" "}
+            <a href={`mailto:${site.email}`} className="text-amber hover:underline">
+              {site.email}
+            </a>{" "}
+            ·{" "}
             <a href={site.parentUrl} className="text-amber hover:underline">
               {site.parentUrl.replace("https://", "")}
             </a>
