@@ -3,11 +3,13 @@ import Link from "next/link";
 import { ArrowLeft, ExternalLink } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { site } from "@/config/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Refund Policy",
   description: `How refunds work for ${site.name} and Dotly Pro purchases made through Google Play.`,
-};
+  path: "/refund",
+});
 
 export default function RefundPage() {
   return (

@@ -3,11 +3,13 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { site } from "@/config/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Terms",
-  description: `The terms for using ${site.name}.`,
-};
+  description: `The terms for using ${site.name}, the life-calendar wallpaper app by ${site.parent}.`,
+  path: "/terms",
+});
 
 export default function TermsPage() {
   return (

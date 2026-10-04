@@ -14,13 +14,17 @@ const columns = [
   {
     heading: "Product",
     links: [
-      { label: "The idea", href: "#idea" },
-      { label: "Features", href: "#features" },
-      { label: "Widgets", href: "#widgets" },
-      { label: "How it works", href: "#how" },
-      { label: "FAQ", href: "#faq" },
-      { label: "Download", href: "#download" },
+      { label: "The idea", href: "/#idea" },
+      { label: "Features", href: "/#features" },
+      { label: "Widgets", href: "/#widgets" },
+      { label: "How it works", href: "/#how" },
+      { label: "FAQ", href: "/#faq" },
+      { label: "Download", href: "/#download" },
     ],
+  },
+  {
+    heading: "Learn",
+    links: [{ label: "Blog", href: "/blog" }],
   },
   {
     heading: "Legal",
@@ -54,7 +58,7 @@ export function Footer() {
             </a>
           </div>
 
-          <div className="grid grid-cols-2 gap-8 md:col-span-5 md:col-start-7">
+          <div className="grid grid-cols-3 gap-6 md:col-span-6 md:col-start-7 md:gap-8">
             {columns.map((col) => (
               <div key={col.heading}>
                 <h3 className="font-mono text-[11px] uppercase tracking-[0.2em] text-chalk-faint">

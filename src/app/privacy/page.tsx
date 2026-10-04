@@ -4,11 +4,13 @@ import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { Logo } from "@/components/brand/logo";
 import { site } from "@/config/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Privacy Policy",
-  description: `Privacy policy for the ${site.name} Android app by ${site.parent}.`,
-};
+  description: `Privacy policy for the ${site.name} Android app by ${site.parent}. Your data stays on your device — no account, no tracking.`,
+  path: "/privacy",
+});
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (

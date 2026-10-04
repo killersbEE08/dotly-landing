@@ -27,10 +27,8 @@ export const metadata: Metadata = {
     "Prince Labs",
   ],
   category: "productivity",
-  alternates: { canonical: site.url },
   openGraph: {
     type: "website",
-    url: site.url,
     siteName: site.name,
     title: `${site.name} — ${site.tagline}`,
     description: site.description,

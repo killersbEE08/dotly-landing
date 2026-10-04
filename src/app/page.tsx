@@ -14,6 +14,12 @@ import { Download } from "@/components/sections/download";
 import { FinalCta } from "@/components/sections/final-cta";
 import { Footer } from "@/components/sections/footer";
 import { site } from "@/config/site";
+import { pageMetadata } from "@/lib/seo";
+
+export const metadata = pageMetadata({
+  description: site.description,
+  path: "/",
+});
 
 const jsonLd = {
   "@context": "https://schema.org",
@@ -36,6 +42,30 @@ const jsonLd = {
   },
 };
 
+const organizationJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: site.parent,
+  url: site.parentUrl,
+  logo: `${site.url}/icon.svg`,
+  email: site.email,
+  sameAs: [site.social.github, site.social.x, site.social.linkedin],
+};
+
+const websiteJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: site.name,
+  url: site.url,
+  description: site.description,
+  inLanguage: "en",
+  publisher: {
+    "@type": "Organization",
+    name: site.parent,
+    url: site.parentUrl,
+  },
+};
+
 const faqJsonLd = {
   "@context": "https://schema.org",
   "@type": "FAQPage",
@@ -52,6 +82,14 @@ export default function Home() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
       <script
         type="application/ld+json"
