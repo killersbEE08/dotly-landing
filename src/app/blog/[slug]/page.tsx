@@ -68,6 +68,15 @@ export default async function BlogPostPage({ params }: Params) {
     url,
     mainEntityOfPage: { "@type": "WebPage", "@id": url },
     inLanguage: "en",
+    ...(post.sources && post.sources.length > 0
+      ? {
+          citation: post.sources.map((s) =>
+            s.url
+              ? { "@type": "CreativeWork", name: s.label, url: s.url }
+              : { "@type": "CreativeWork", name: s.label }
+          ),
+        }
+      : {}),
     author: {
       "@type": "Organization",
       name: site.parent,
@@ -202,6 +211,35 @@ export default async function BlogPostPage({ params }: Params) {
             <div className="lg:col-span-8">
               <div className="max-w-prose">
                 <ArticleBody blocks={post.body} />
+
+                {post.sources && post.sources.length > 0 && (
+                  <section
+                    aria-labelledby="sources-heading"
+                    className="mt-14 border-t border-white/[0.08] pt-8"
+                  >
+                    <h2 id="sources-heading" className="label-eyebrow">
+                      Sources &amp; further reading
+                    </h2>
+                    <ol className="mt-4 list-decimal space-y-2 pl-6 text-sm leading-relaxed text-chalk-muted marker:text-chalk-faint">
+                      {post.sources.map((s) => (
+                        <li key={s.label}>
+                          {s.url ? (
+                            <a
+                              href={s.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="underline-offset-4 hover:text-chalk hover:underline"
+                            >
+                              {s.label}
+                            </a>
+                          ) : (
+                            s.label
+                          )}
+                        </li>
+                      ))}
+                    </ol>
+                  </section>
+                )}
 
                 {cta && (
                   <aside className="mt-14 rounded-2xl border border-amber/20 bg-amber/[0.05] p-7 md:p-9">
